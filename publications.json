@@ -1,0 +1,88 @@
+{
+  "updated": "2026-10-25",
+  "profile": "https://scholar.google.com/citations?user=NMVFXaMAAAAJ",
+  "total_citations": 262,
+  "h_index": 8,
+  "publications": [
+    {
+      "title": "Flavivirus NS1-triggered endothelial dysfunction promotes virus dissemination",
+      "authors": "Henry Puerta-Guardo, Scott B Biering, Bryan Castillo-Rojas, Michael J DiBiasio-White, Nicholas TN Lo, Diego A Espinosa, Colin M Warnes, Chunling Wang, Thu M Cao, Dustin R Glasner, P Robert Beatty, Richard J Kuhn, Eva Harris",
+      "venue": "PLoS Pathogens",
+      "year": 2025,
+      "citations": 18,
+      "url": "https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1013811"
+    },
+    {
+      "title": "Yellow fever disease severity and endothelial dysfunction are associated with elevated serum levels of viral NS1 protein and syndecan-1",
+      "authors": "Francielle TG de Sousa, Colin M Warnes, Erika R Manuli, Laurentia V Tjang, Pedro H Carneiro, Luzia Maria de Oliveira Pinto, Arash Ng, Samhita Bhat, Jose Victor Zambrana, Luiz GFAB D’Elia Zanella, Yeh-Li Ho, Camila M Romano, P Robert Beatty, Scott B Biering, Esper G Kallas, Ester C Sabino, Eva Harris",
+      "venue": "EBioMedicine",
+      "year": 2024,
+      "citations": 28,
+      "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(24)00445-6/fulltext"
+    },
+    {
+      "title": "Longitudinal analysis of post-acute chikungunya-associated arthralgia in children and adults: a prospective cohort study in Managua, Nicaragua (2014–2018)",
+      "authors": "Colin M Warnes, Fausto Andres Bustos Carrillo, Jose Victor Zambrana, Brenda Lopez Mercado, Sonia Arguello, Oscarlette Ampié, Damaris Collado, Nery Sanchez, Sergio Ojeda, Guillermina Kuan, Aubree Gordon, Angel Balmaseda, Eva Harris",
+      "venue": "PLOS Neglected Tropical Diseases",
+      "year": 2024,
+      "citations": 28,
+      "url": "https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011948"
+    },
+    {
+      "title": "Longitudinal Analysis of the Burden of Post-Acute Chikungunya-Associated Arthralgia in Children and Adults: A Prospective Cohort Study in Managua, Nicaragua (2014–2019)",
+      "authors": "Colin M Warnes, Fausto Andres Bustos Carrillo, Jose Victor Zambrana, Brenda Lopez Mercado, Sonia Arguello, Oscarlette Ampié, Damaris Collado, Nery Sanchez, Sergio Ojeda, Guillermina Kuan, Aubree Gordon, Angel Balmaseda, Eva Harris",
+      "venue": "medRxiv",
+      "year": 2023,
+      "citations": 1,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10197786/"
+    },
+    {
+      "title": "SARS-CoV-2 Spike triggers barrier dysfunction and vascular leak via integrins and TGF-β signaling",
+      "authors": "Scott B Biering, Francielle Tramontini Gomes de Sousa, Laurentia V Tjang, Felix Pahmeier, Chi Zhu, Richard Ruan, Sophie F Blanc, Trishna S Patel, Caroline M Worthington, Dustin R Glasner, Bryan Castillo-Rojas, Venice Servellita, Nicholas TN Lo, Marcus P Wong, Colin M Warnes, Daniel R Sandoval, Thomas Mandel Clausen, Yale A Santos, Douglas M Fox, Victoria Ortega, Anders M Näär, Ralph S Baric, Sarah A Stanley, Hector C Aguilar, Jeffrey D Esko, Charles Y Chiu, John E Pak, P Robert Beatty, Eva Harris",
+      "venue": "Nature Communications",
+      "year": 2022,
+      "citations": 103,
+      "url": "https://www.nature.com/articles/s41467-022-34910-5"
+    },
+    {
+      "title": "MONITORING LEVELS OF DENGUE VIRUS 1-4 NS1 IN ACUTE PRIMARY AND SECONDARY SAMPLES USING A NEW QUANTITATIVE NS1 CAPTURE ELISA, 0791",
+      "authors": "",
+      "venue": "AMERICAN JOURNAL OF TROPICAL MEDICINE AND HYGIENE",
+      "year": 2022,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&citation_for_view=NMVFXaMAAAAJ:zYLM7Y9cAGgC"
+    },
+    {
+      "title": "The Compound SBI-0090799 Inhibits Zika Virus Infection by Blocking De Novo Formation of the Membranous Replication Compartment",
+      "authors": "Laura Riva, Sarah Goellner, Scott B Biering, Chun-Teng Huang, Andrey N Rubanov, Uta Haselmann, Colin M Warnes, Paul D De Jesus, Laura Martin-Sancho, Alexey V Terskikh, Eva Harris, Anthony B Pinkerton, Ralf Bartenschlager, Sumit K Chanda",
+      "venue": "Journal of Virology",
+      "year": 2021,
+      "citations": 34,
+      "url": "https://journals.asm.org/doi/abs/10.1128/jvi.00996-21"
+    },
+    {
+      "title": "Surveillance and Epidemiology of Dengue in Medellín, Colombia from 2009 to 2017",
+      "authors": "Colin M Warnes, Eduardo Santacruz-Sanmartín, Fausto Bustos Carrillo, Iván Darío Vélez",
+      "venue": "The American Journal of Tropical Medicine and Hygiene",
+      "year": 2021,
+      "citations": 23,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8103481/"
+    },
+    {
+      "title": "Avian anti-NS1 IgY antibodies neutralize dengue virus infection and protect against lethal dengue virus challenge",
+      "authors": "Kyle L O'Donnell, Diego A Espinosa, Henry Puerta-Guardo, Scott B Biering, Colin M Warnes, James Schiltz, Matthew L Nilles, Jeffrey Li, Eva Harris, David S Bradley",
+      "venue": "Antiviral Research",
+      "year": 2020,
+      "citations": 17,
+      "url": "https://www.sciencedirect.com/science/article/pii/S0166354220303375"
+    },
+    {
+      "title": "Tracking the polyclonal neutralizing antibody response to a dengue virus serotype 1 type-specific epitope across two populations in Asia and the Americas",
+      "authors": "Daniela V Andrade, Colin Warnes, Ellen Young, Leah C Katzelnick, Angel Balmaseda, Aravinda M de Silva, Ralph S Baric, Eva Harris",
+      "venue": "Scientific Reports",
+      "year": 2019,
+      "citations": 10,
+      "url": "https://www.nature.com/articles/s41598-019-52511-z"
+    }
+  ]
+}

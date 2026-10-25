@@ -1,18 +1,22 @@
 :root {
-  --bg: #fbfaf8;
-  --text: #1f1f1f;
-  --muted: #6b6b6b;
-  --rule: #e4e1dc;
-  --accent: #003399;
+  --paper: #f5f0e6;
+  --ink: #1c2b4a;
+  --muted: #5a6680;
+  --rule: #c9c1b0;
+  --navy: #1b2d52;
+  --navy-text: #f5f0e6;
+  --heading: #1b2d52;
+  --link: #24479b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #141414;
-    --text: #e8e6e3;
-    --muted: #9a9a9a;
-    --rule: #2c2c2c;
-    --accent: #8fb0ff;
+    --paper: #0f1828;
+    --ink: #e6e0d2;
+    --muted: #9aa6bf;
+    --rule: #2a3a5a;
+    --heading: #e6e0d2;
+    --link: #9db8f2;
   }
 }
 
@@ -20,66 +24,72 @@
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.65 "Courier Prime", "Courier New", Courier, monospace;
+  border-top: 6px solid var(--navy);
 }
 
 main {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 64px 20px 48px;
+  padding: 48px 20px;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: var(--link); text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
 
+/* Masthead */
 header {
   display: flex;
   align-items: center;
   gap: 28px;
-  margin-bottom: 32px;
+  background: var(--navy);
+  color: var(--navy-text);
+  padding: 32px;
+  margin-bottom: 36px;
+  box-shadow: 6px 6px 0 var(--rule);
 }
 
+header a { color: var(--navy-text); }
+
 .headshot {
-  width: 140px;
-  height: 140px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  border: 3px solid var(--navy-text);
 }
 
 h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Special Elite", "Courier New", monospace;
   font-weight: normal;
-  font-size: 2rem;
-  line-height: 1.2;
-  margin: 0 0 4px;
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 6px;
 }
 
-.role { margin: 0; color: var(--muted); }
+.role { margin: 0; opacity: 0.85; }
 .links { margin: 6px 0 0; }
 
 .intro { margin: 0 0 8px; }
 
-section {
-  border-top: 1px solid var(--rule);
-  margin-top: 36px;
-  padding-top: 20px;
-}
+section { margin-top: 40px; }
 
 h2 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 16px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: normal;
+  font-size: 1.4rem;
+  color: var(--heading);
+  margin: 0 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed var(--rule);
 }
 
 ul { list-style: none; margin: 0; padding: 0; }
 
-.entries li + li { margin-top: 18px; }
+.entries li + li { margin-top: 20px; }
 .entries p { margin: 4px 0 0; }
 
 .row {
@@ -88,40 +98,58 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 16px;
 }
 .row span { color: var(--muted); white-space: nowrap; font-size: 0.9rem; }
-.sub { color: var(--muted); font-size: 0.95rem; }
+.sub { color: var(--muted); font-size: 0.95rem; font-style: italic; }
 
-.pubs li { margin-bottom: 12px; font-size: 0.95rem; }
+.pubs li {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+.pubs li::before { content: "\00bb\00a0"; color: var(--muted); }
 .note { color: var(--muted); font-size: 0.9rem; margin: 4px 0 0; }
+#pubs-meta { margin: -6px 0 16px; }
 
 .plain li + li { margin-top: 6px; }
 .label {
   display: inline-block;
-  min-width: 96px;
+  min-width: 112px;
   color: var(--muted);
 }
 
-.outside { margin: 48px 0 0; }
+/* Polaroid-style photo */
+.outside {
+  margin: 48px 0 0;
+  background: #fff;
+  padding: 12px 12px 4px;
+  box-shadow: 4px 4px 0 var(--rule);
+  transform: rotate(-0.6deg);
+}
 .outside img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
   display: block;
 }
 .outside figcaption {
-  color: var(--muted);
+  color: #5a6680;
   font-size: 0.9rem;
-  margin-top: 8px;
+  text-align: center;
+  padding: 8px 0;
 }
 
 footer {
-  margin-top: 48px;
+  margin-top: 56px;
+  padding-top: 16px;
+  border-top: 2px dashed var(--rule);
   color: var(--muted);
   font-size: 0.85rem;
+  text-align: center;
 }
 
 @media (max-width: 520px) {
-  main { padding-top: 40px; }
-  header { flex-direction: column; align-items: flex-start; gap: 18px; }
-  .headshot { width: 112px; height: 112px; }
+  main { padding-top: 28px; }
+  header { flex-direction: column; align-items: flex-start; gap: 18px; padding: 24px; }
+  .headshot { width: 104px; height: 104px; }
+  h1 { font-size: 1.8rem; }
   .row { flex-direction: column; gap: 0; }
 }
