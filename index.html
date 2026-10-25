@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='Georgia'>CW</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,7 +34,16 @@
       evaluate the efficacy of the intervention.
     </p>
 
-    <section>
+    <nav class="toc" aria-label="Contents">
+      <span>Contents</span>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#skills">Skills</a>
+    </nav>
+
+    <section id="experience">
       <h2>Experience</h2>
       <ul class="entries">
         <li>
@@ -60,7 +69,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="education">
       <h2>Education</h2>
       <ul class="entries">
         <li>
@@ -78,7 +87,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="publications">
       <h2>Publications</h2>
       <p class="note" id="pubs-meta">From <a href="https://orcid.org/0000-0003-3088-8429">ORCID</a></p>
       <ul class="pubs" id="pubs">
@@ -91,7 +100,7 @@
       <p class="note">Patents: WO2025064836 and WO2025166050 (co-inventor, Glyphic Bio).</p>
     </section>
 
-    <section>
+    <section id="awards">
       <h2>Awards</h2>
       <ul class="plain">
         <li>Best Poster Award, President's PhD Scholarship Symposium, Imperial, 2025</li>
@@ -101,7 +110,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="skills">
       <h2>Skills</h2>
       <ul class="plain">
         <li><span class="label">Languages</span> English (native), Farsi (native spoken), Spanish (fluent)</li>
