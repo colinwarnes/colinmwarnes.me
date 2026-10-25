@@ -1,27 +1,29 @@
+/* Styled to read like a Markdown file: Markdown syntax is added as faint
+   ::before/::after markers so the real text stays clean (and copies cleanly). */
 :root {
   --paper: #dfe5ed;
   --ink: #1c2b4a;
-  --muted: #4f5d78;
+  --muted: #7a87a0;
   --rule: #b4bfcf;
-  --navy: #1b2d52;
-  --navy-text: #f5f0e6;
   --heading: #1b2d52;
   --link: #24479b;
+  --code-bg: #cfd7e3;
   color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 17px/1.65 "Courier Prime", "Courier New", Courier, monospace;
-  border-top: 6px solid var(--navy);
+  font: 17px/1.7 "Courier Prime", "Courier New", Courier, monospace;
 }
 
 main {
-  max-width: 720px;
+  max-width: 76ch;
   margin: 0 0 0 clamp(0px, 6vw, 96px);
   padding: 48px 20px;
 }
@@ -29,80 +31,88 @@ main {
 a { color: var(--link); text-underline-offset: 3px; }
 a:hover { color: var(--ink); }
 
-/* Masthead */
+/* Front matter: headshot + "# Name" */
 header {
   display: flex;
   align-items: center;
-  gap: 28px;
-  background: var(--navy);
-  color: var(--navy-text);
-  padding: 32px;
-  margin-bottom: 36px;
+  gap: 24px;
+  margin-bottom: 28px;
 }
-
-header a { color: var(--navy-text); }
 
 .headshot {
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
+  width: 104px;
+  height: 104px;
   object-fit: cover;
   flex-shrink: 0;
-  border: 3px solid var(--navy-text);
+  border-radius: 4px;
 }
 
-h1 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 400;
-  font-size: 2.4rem;
-  letter-spacing: 0.01em;
-  line-height: 1.15;
-  margin: 0 0 6px;
+h1, h2 {
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1.3;
 }
+h1 { font-size: 1.7rem; margin: 0 0 4px; }
+h1::before { content: "# "; color: var(--muted); font-weight: 400; }
 
-.role { margin: 0; opacity: 0.85; }
-.links { margin: 6px 0 0; }
+.role { margin: 0; }
+.links { margin: 2px 0 0; }
 
-.intro { margin: 0 0 8px; }
+/* Autolink <email> and [link] markers */
+.links a[href^="mailto:"]::before { content: "<"; color: var(--muted); }
+.links a[href^="mailto:"]::after  { content: ">"; color: var(--muted); }
+.links a:not([href^="mailto:"])::before { content: "["; color: var(--muted); }
+.links a:not([href^="mailto:"])::after  { content: "]"; color: var(--muted); }
+.links a::before, .links a::after { display: inline-block; text-decoration: none; }
 
-html { scroll-behavior: smooth; }
+.intro { margin: 0; }
 
-/* Contents bar */
+/* Contents as a Markdown list of [links](#anchors) */
 .toc {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px 18px;
   margin-top: 28px;
-  padding: 12px 0;
-  border-top: 2px dashed var(--rule);
-  border-bottom: 2px dashed var(--rule);
   font-size: 0.95rem;
 }
-.toc span {
-  font-weight: 700;
+.toc span { display: block; font-weight: 700; }
+.toc span::before { content: "**"; color: var(--muted); font-weight: 400; }
+.toc span::after  { content: ":**"; color: var(--muted); font-weight: 400; }
+.toc a { display: block; text-decoration: none; }
+.toc a::before { content: "- ["; color: var(--muted); }
+.toc a::after  { content: "](" attr(href) ")"; color: var(--muted); }
+.toc a:hover { text-decoration: underline; }
+
+/* Sections separated by a literal --- rule, headed by ## */
+section { margin-top: 32px; scroll-margin-top: 20px; }
+section::before,
+footer::before {
+  content: "---";
+  display: block;
   color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
+  margin-bottom: 20px;
 }
-
-section { margin-top: 40px; scroll-margin-top: 20px; }
-
-h2 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 700;
-  font-size: 1.55rem;
-  color: var(--heading);
-  margin: 0 0 18px;
-  padding-bottom: 8px;
-  border-bottom: 2px dashed var(--rule);
-}
+h2 { font-size: 1.25rem; margin: 0 0 14px; }
+h2::before { content: "## "; color: var(--muted); font-weight: 400; }
 
 ul { list-style: none; margin: 0; padding: 0; }
 
-.entries li + li { margin-top: 20px; }
-.entries p { margin: 4px 0 0; }
+/* **bold** and *italic* markers */
+strong::before, strong::after { content: "**"; color: var(--muted); font-weight: 400; }
+em::before, em::after { content: "*"; color: var(--muted); }
+
+/* Bulleted lists: "- " with a hanging indent */
+.entries li, .pubs li, .plain li {
+  position: relative;
+  padding-left: 2ch;
+}
+.entries li::before, .pubs li::before, .plain li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+.entries li + li { margin-top: 16px; }
+.entries p { margin: 2px 0 0; }
 
 .row {
   display: flex;
@@ -112,74 +122,61 @@ ul { list-style: none; margin: 0; padding: 0; }
 .row span { color: var(--muted); white-space: nowrap; font-size: 0.9rem; }
 .sub { color: var(--muted); font-size: 0.95rem; }
 
-.pubs li {
-  margin-bottom: 12px;
-  font-size: 0.95rem;
-  padding-left: 1.2em;
-  text-indent: -1.2em;
-}
-.pubs li::before { content: "\00bb\00a0"; color: var(--muted); }
+.pubs li { margin-bottom: 12px; font-size: 0.95rem; }
 .note { color: var(--muted); font-size: 0.9rem; margin: 4px 0 0; }
-#pubs-meta { margin: -6px 0 16px; }
+#pubs-meta { margin: -4px 0 14px; }
+
+/* `inline code` look for the preprint tag */
 .tag {
-  font-size: 0.75rem;
-  border: 1px solid var(--rule);
-  padding: 0 5px;
-  color: var(--muted);
+  font-size: 0.8rem;
+  background: var(--code-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
   white-space: nowrap;
 }
+.tag::before, .tag::after { content: "`"; color: var(--muted); }
 
 .plain li + li { margin-top: 6px; }
 .plain li:has(.label) { display: flex; }
-.label {
-  flex: 0 0 112px;
-  color: var(--muted);
-}
+.label { flex: 0 0 13ch; }
+.label::after { content: ":"; color: var(--muted); }
 
-/* Polaroid-style photos; flex ratios match the image aspect ratios so both are the same height */
+/* Images as ![caption](file) */
 .photos {
   display: flex;
   align-items: flex-start;
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 40px;
 }
-.outside {
-  margin: 0;
-  min-width: 0;
-  background: #fff;
-  padding: 12px 12px 4px;
-  box-shadow: 4px 4px 0 var(--rule);
-  transform: rotate(-0.6deg);
-}
-.outside.portrait { flex: 3 1 0; transform: rotate(-1.2deg); }
-.outside.landscape { flex: 5.33 1 0; transform: rotate(0.8deg); }
+.outside { margin: 0; min-width: 0; }
+/* flex ratios match the image aspect ratios (3:4 and 4:3) so both are the same height */
+.outside.portrait { flex: 3 1 0; }
+.outside.landscape { flex: 5.33 1 0; }
 .outside img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 4px;
 }
 .outside figcaption {
-  color: #5a6680;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 8px 0;
-}
-
-footer {
-  margin-top: 56px;
-  padding-top: 16px;
-  border-top: 2px dashed var(--rule);
   color: var(--muted);
   font-size: 0.85rem;
-  text-align: center;
+  padding: 6px 0;
+}
+.outside figcaption::before { content: "!["; }
+.outside figcaption::after  { content: "]"; }
+
+footer {
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 @media (max-width: 520px) {
   main { padding-top: 28px; }
-  header { flex-direction: column; align-items: flex-start; gap: 18px; padding: 24px; }
-  .headshot { width: 104px; height: 104px; }
-  h1 { font-size: 1.8rem; }
+  header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  h1 { font-size: 1.45rem; }
   .row { flex-direction: column; gap: 0; }
-  .photos { flex-direction: column; gap: 32px; }
+  .photos { flex-direction: column; gap: 24px; }
   .outside.portrait, .outside.landscape { flex: none; width: 100%; }
 }
