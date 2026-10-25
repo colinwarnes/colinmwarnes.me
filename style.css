@@ -109,6 +109,13 @@ ul { list-style: none; margin: 0; padding: 0; }
 .pubs li::before { content: "\00bb\00a0"; color: var(--muted); }
 .note { color: var(--muted); font-size: 0.9rem; margin: 4px 0 0; }
 #pubs-meta { margin: -6px 0 16px; }
+.tag {
+  font-size: 0.75rem;
+  border: 1px solid var(--rule);
+  padding: 0 5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
 
 .plain li + li { margin-top: 6px; }
 .label {

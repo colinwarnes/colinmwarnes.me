@@ -7,7 +7,7 @@ Edit `index.html` (content) and `style.css` (look), then commit and push to `mai
 ## Publications
 
 The publications list is rendered from `publications.json`, which the
-**Update publications** GitHub Action refreshes every Monday by scraping the
-Google Scholar profile (`scripts/update_publications.py`, using `scholarly`).
-Run it manually from the repo's **Actions** tab ("Run workflow"). If Scholar
-blocks the run, the previous list stays in place.
+**Update publications** GitHub Action refreshes every Monday from the
+ORCID record (`scripts/update_publications.py`; authors and venues come from Crossref).
+Run it manually from the repo's **Actions** tab ("Run workflow"). If ORCID
+is unreachable, the previous list stays in place.

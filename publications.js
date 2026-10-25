@@ -1,4 +1,4 @@
-// Renders publications.json (refreshed weekly from Google Scholar by a GitHub Action).
+// Renders publications.json (refreshed weekly from ORCID by a GitHub Action).
 // The static list in index.html stays as a fallback if this fails.
 (function () {
   const list = document.getElementById("pubs");
@@ -29,13 +29,13 @@
       list.innerHTML = data.publications.map((p) => {
         const a = authors(p.authors);
         const title = p.url ? `<a href="${esc(p.url)}">${esc(p.title)}</a>` : esc(p.title);
-        const venue = [p.venue && `<em>${esc(p.venue)}</em>`, p.year].filter(Boolean).join(", ");
+        const venue = [p.venue && `<em>${esc(p.venue)}</em>`, p.year].filter(Boolean).join(", ") +
+          (p.preprint ? ` <span class="tag">preprint</span>` : "");
         const lead = a ? a.replace(/\.$/, "") + ". " : "";
         return `<li>${lead}${title}. ${venue}.</li>`;
       }).join("");
-      if (meta && data.total_citations) {
-        meta.innerHTML = `Cited ${data.total_citations} times · h-index ${data.h_index} · ` +
-          `<a href="${esc(data.profile)}">Google Scholar</a> · updated ${esc(data.updated)}`;
+      if (meta) {
+        meta.innerHTML = `From <a href="${esc(data.profile)}">ORCID</a> · updated ${esc(data.updated)}`;
       }
     })
     .catch(() => {});

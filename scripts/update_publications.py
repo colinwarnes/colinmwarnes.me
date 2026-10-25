@@ -1,60 +1,75 @@
-"""Fetch publications from a Google Scholar profile and write publications.json.
+"""Build publications.json from an ORCID record.
 
-Google Scholar has no official API, so this uses the `scholarly` scraper.
-If Scholar blocks the request, the script exits non-zero and leaves the
-existing publications.json untouched.
+Works come from the ORCID public API; authors and venue are filled in from
+Crossref using each work's DOI. Standard library only. If ORCID can't be
+reached the script exits non-zero and leaves publications.json untouched.
 """
 
 import json
+import re
 import sys
+import urllib.parse
+import urllib.request
 from datetime import date
 from pathlib import Path
 
-from scholarly import scholarly
-
-SCHOLAR_ID = "NMVFXaMAAAAJ"
+ORCID_ID = "0000-0003-3088-8429"
 OUT = Path(__file__).resolve().parent.parent / "publications.json"
-PROFILE_URL = f"https://scholar.google.com/citations?user={SCHOLAR_ID}"
+PROFILE_URL = f"https://orcid.org/{ORCID_ID}"
+USER_AGENT = "colinmwarnes.me publications updater (https://colinmwarnes.me)"
 
 
-def format_authors(raw):
-    names = [n.strip() for n in raw.split(" and ") if n.strip()]
-    return ", ".join(names)
+def get_json(url):
+    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.load(r)
+
+
+def clean(text):
+    return re.sub(r"<[^>]+>", "", text or "").strip().rstrip(".")
+
+
+def crossref(doi):
+    try:
+        return get_json("https://api.crossref.org/works/" + urllib.parse.quote(doi))["message"]
+    except Exception as e:
+        print(f"warning: Crossref lookup failed for {doi}: {e}", file=sys.stderr)
+        return {}
 
 
 def main():
-    author = scholarly.search_author_id(SCHOLAR_ID)
-    author = scholarly.fill(author, sections=["basics", "indices", "publications"])
+    works = get_json(f"https://pub.orcid.org/v3.0/{ORCID_ID}/works")["group"]
 
     pubs = []
-    for pub in author.get("publications", []):
-        try:
-            pub = scholarly.fill(pub)
-        except Exception as e:  # keep the summary data if the detail page fails
-            print(f"warning: could not fill '{pub['bib'].get('title')}': {e}", file=sys.stderr)
-        bib = pub.get("bib", {})
-        venue = bib.get("journal") or bib.get("conference") or bib.get("publisher") or bib.get("citation", "")
+    for group in works:
+        s = group["work-summary"][0]
+        ids = s.get("external-ids") or {}
+        doi = next((e["external-id-value"] for e in ids.get("external-id", [])
+                    if e["external-id-type"] == "doi"), None)
+        year = ((s.get("publication-date") or {}).get("year") or {}).get("value")
+        cr = crossref(doi) if doi else {}
+
+        authors = ", ".join(" ".join(filter(None, [a.get("given"), a.get("family")]))
+                            for a in cr.get("author", []))
+        preprint = s.get("type") == "preprint"
+        venue = (cr.get("container-title") or [None])[0] or (s.get("journal-title") or {}).get("value")
+        if preprint and not venue:
+            venue = (cr.get("institution") or [{}])[0].get("name") or "Preprint"
+
         pubs.append({
-            "title": bib.get("title", ""),
-            "authors": format_authors(bib.get("author", "")),
-            "venue": venue,
-            "year": int(bib["pub_year"]) if str(bib.get("pub_year", "")).isdigit() else None,
-            "citations": pub.get("num_citations", 0),
-            "url": pub.get("pub_url")
-                   or f"https://scholar.google.com/citations?view_op=view_citation&citation_for_view={pub.get('author_pub_id', '')}",
+            "title": clean((cr.get("title") or [None])[0] or s["title"]["title"]["value"]),
+            "authors": authors,
+            "venue": venue or "",
+            "year": int(year) if year else None,
+            "preprint": preprint,
+            "url": f"https://doi.org/{doi}" if doi else (s.get("url") or {}).get("value"),
         })
 
     if not pubs:
-        sys.exit("No publications returned; leaving publications.json unchanged.")
+        sys.exit("No works returned; leaving publications.json unchanged.")
 
-    pubs.sort(key=lambda p: (p["year"] or 0, p["citations"]), reverse=True)
-    data = {
-        "updated": date.today().isoformat(),
-        "profile": PROFILE_URL,
-        "total_citations": author.get("citedby"),
-        "h_index": author.get("hindex"),
-        "publications": pubs,
-    }
+    pubs.sort(key=lambda p: p["year"] or 0, reverse=True)
+    data = {"updated": date.today().isoformat(), "profile": PROFILE_URL, "publications": pubs}
     OUT.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
     print(f"Wrote {len(pubs)} publications to {OUT}")
 
