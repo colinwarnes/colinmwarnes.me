@@ -38,7 +38,6 @@ header {
   color: var(--navy-text);
   padding: 32px;
   margin-bottom: 36px;
-  box-shadow: 6px 6px 0 var(--rule);
 }
 
 header a { color: var(--navy-text); }
