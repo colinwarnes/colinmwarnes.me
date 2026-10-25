@@ -9,13 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <div class="topbar">
     <a class="brand" href="#overview">Colin M. Warnes</a>
     <nav class="toplinks">
-      <a href="mailto:cmw23@ic.ac.uk">Email</a>
+      <a href="#contact">Contact</a>
       <a href="https://orcid.org/0000-0003-3088-8429">ORCID</a>
     </nav>
   </div>
@@ -29,6 +29,7 @@
       <a href="#awards">Awards</a>
       <a href="#skills">Skills</a>
       <a href="#photos">Photos</a>
+      <a href="#contact">Contact</a>
     </nav>
 
     <main>
@@ -143,11 +144,36 @@
         </div>
       </section>
 
+      <section id="contact">
+        <h2>Contact</h2>
+        <!-- Messages are forwarded by Web3Forms; the destination address lives in their account, not in this page. -->
+        <form class="contact" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="from_name" value="colinmwarnes.me">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <label for="c-name">Name</label>
+          <input id="c-name" name="name" type="text" required maxlength="100" autocomplete="name">
+
+          <label for="c-subject">Subject</label>
+          <input id="c-subject" name="subject" type="text" required maxlength="150">
+
+          <label for="c-message">Message <span class="hint">(max 50 words)</span></label>
+          <textarea id="c-message" name="message" rows="5" required></textarea>
+          <div class="form-foot">
+            <span id="c-count" class="hint">0 / 50 words</span>
+            <button type="submit">Send</button>
+          </div>
+          <p id="c-status" class="status" role="status"></p>
+        </form>
+      </section>
+
       <footer>© 2026 Colin M. Warnes</footer>
     </main>
   </div>
   <!-- Bump ?v= when changing these files so browsers don't mix new HTML with cached CSS/JS -->
   <script src="publications.js?v=2"></script>
   <script src="nav.js?v=2"></script>
+  <script src="contact.js?v=1"></script>
 </body>
 </html>
