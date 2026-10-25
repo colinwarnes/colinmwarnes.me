@@ -1,0 +1,1 @@
+# No dependencies: update_publications.py uses only the Python standard library.
