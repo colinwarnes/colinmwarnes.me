@@ -1,23 +1,13 @@
 :root {
-  --paper: #f5f0e6;
+  --paper: #dfe5ed;
   --ink: #1c2b4a;
-  --muted: #5a6680;
-  --rule: #c9c1b0;
+  --muted: #4f5d78;
+  --rule: #b4bfcf;
   --navy: #1b2d52;
   --navy-text: #f5f0e6;
   --heading: #1b2d52;
   --link: #24479b;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #0f1828;
-    --ink: #e6e0d2;
-    --muted: #9aa6bf;
-    --rule: #2a3a5a;
-    --heading: #e6e0d2;
-    --link: #9db8f2;
-  }
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -32,7 +22,7 @@ body {
 
 main {
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0 0 0 clamp(0px, 6vw, 96px);
   padding: 48px 20px;
 }
 
