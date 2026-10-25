@@ -63,9 +63,10 @@ header a { color: var(--navy-text); }
 }
 
 h1 {
-  font-family: "Special Elite", "Courier New", monospace;
-  font-weight: normal;
-  font-size: 2.1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  letter-spacing: 0.01em;
   line-height: 1.15;
   margin: 0 0 6px;
 }
@@ -78,9 +79,10 @@ h1 {
 section { margin-top: 40px; }
 
 h2 {
-  font-family: "Special Elite", "Courier New", monospace;
-  font-weight: normal;
-  font-size: 1.4rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.6rem;
   color: var(--heading);
   margin: 0 0 18px;
   padding-bottom: 8px;
