@@ -8,130 +8,145 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='Georgia'>CW</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <header>
-      <img class="headshot" src="images/headshot.jpg" alt="Colin Warnes" width="160" height="160">
-      <div>
-        <h1>Colin M. Warnes, MPH</h1>
-        <p class="role">PhD Candidate, Imperial College London</p>
-        <p class="links">
-          <a href="mailto:cmw23@ic.ac.uk">cmw23@ic.ac.uk</a> · <a href="https://orcid.org/0000-0003-3088-8429">ORCID</a>
-        </p>
-      </div>
-    </header>
+  <div class="topbar">
+    <a class="brand" href="#overview">Colin M. Warnes</a>
+    <nav class="toplinks">
+      <a href="mailto:cmw23@ic.ac.uk">Email</a>
+      <a href="https://orcid.org/0000-0003-3088-8429">ORCID</a>
+    </nav>
+  </div>
 
-    <p class="intro">
-      I'm a doctoral student in the Dorigatti Group at Imperial College London. My work sits between
-      computational modelling and the lab to develop translational solutions. I am currently focusing on
-      statistical and within-host models to profile viral biomarker kinetics across the course of infection,
-      and how acute-stage biomarkers can inform therapeutics. Before Imperial I worked on dengue,
-      chikungunya and yellow fever at UC Berkeley and spent two years working on antibody engineering and
-      assay development at Glyphic Bio. My goal is to take lab research, optimize it for patient care, and
-      evaluate the efficacy of the intervention.
-    </p>
-
-    <nav class="toc" aria-label="Contents">
-      <span>Contents</span>
+  <div class="layout">
+    <nav class="sidebar" aria-label="Contents">
+      <a href="#overview">Overview</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
       <a href="#publications">Publications</a>
       <a href="#awards">Awards</a>
       <a href="#skills">Skills</a>
+      <a href="#photos">Photos</a>
     </nav>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <ul class="entries">
-        <li>
-          <div class="row"><strong>Imperial College London</strong><span>2024 – present</span></div>
-          <div class="sub">PhD Candidate, Clinical Medicine Research (Public Health)</div>
-          <p>Bayesian regression and within-host models of viral biomarker kinetics during infection.</p>
-        </li>
-        <li>
-          <div class="row"><strong>Glyphic Biotechnologies</strong><span>2022 – 2024</span></div>
-          <div class="sub">Scientist I, Molecular Biology · Berkeley, CA</div>
-          <p>Designed nucleic acid processes using DNA origami, click chemistry and sequencing readout; evaluated antibody candidates and bioconjugation.</p>
-        </li>
-        <li>
-          <div class="row"><strong>Oxford University Clinical Research Unit</strong><span>2021, 2022</span></div>
-          <div class="sub">CGPH Research Fellow · Ho Chi Minh City, Vietnam</div>
-          <p>Established on-site assays for biomarkers implicated in dengue virus infection.</p>
-        </li>
-        <li>
-          <div class="row"><strong>UC Berkeley, Harris Lab</strong><span>2020 – 2022</span></div>
-          <div class="sub">Graduate Student Researcher</div>
-          <p>Characterised chikungunya disease in a Nicaraguan cohort; built low-cost dengue (DENV1–4) and yellow fever NS1 capture ELISAs used across Nicaragua, Ecuador, Vietnam and Brazil.</p>
-        </li>
-      </ul>
-    </section>
+    <main>
+      <section id="overview">
+        <header>
+          <div>
+            <p class="crumb">Overview</p>
+            <h1>Colin M. Warnes, MPH</h1>
+            <p class="role">PhD Candidate, Imperial College London</p>
+          </div>
+          <img class="headshot" src="images/headshot.jpg" alt="Colin Warnes" width="160" height="160">
+        </header>
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul class="entries">
-        <li>
-          <div class="row"><strong>PhD, Clinical Medicine Research</strong><span>2024 – present</span></div>
-          <div class="sub">Imperial College London · President's PhD Scholar</div>
-        </li>
-        <li>
-          <div class="row"><strong>MPH, Infectious Disease &amp; Vaccinology</strong><span>2022</span></div>
-          <div class="sub">University of California, Berkeley</div>
-        </li>
-        <li>
-          <div class="row"><strong>BS, Health: Science, Society &amp; Policy</strong><span>2017</span></div>
-          <div class="sub">Brandeis University · Minor in International &amp; Global Studies</div>
-        </li>
-      </ul>
-    </section>
+        <p>
+          I'm a doctoral student in the Dorigatti Group at Imperial College London. My work sits between
+          computational modelling and the lab to develop translational solutions. I am currently focusing on
+          statistical and within-host models to profile viral biomarker kinetics across the course of infection,
+          and how acute-stage biomarkers can inform therapeutics. Before Imperial I worked on dengue,
+          chikungunya and yellow fever at UC Berkeley and spent two years working on antibody engineering and
+          assay development at Glyphic Bio. My goal is to take lab research, optimize it for patient care, and
+          evaluate the efficacy of the intervention.
+        </p>
+      </section>
 
-    <section id="publications">
-      <h2>Publications</h2>
-      <p class="note" id="pubs-meta">From <a href="https://orcid.org/0000-0003-3088-8429">ORCID</a></p>
-      <ul class="pubs" id="pubs">
-        <li><strong>Warnes CM</strong>, et al. The burden of post-acute chikungunya-associated arthralgia in children and adults. <em>PLOS Neglected Tropical Diseases</em>, 2024.</li>
-        <li>de Sousa FTG, <strong>Warnes CM</strong>, et al. Yellow fever disease severity and endothelial dysfunction are associated with elevated serum levels of viral NS1 protein and syndecan-1. <em>eBioMedicine</em>, 2024.</li>
-        <li>Biering SB, et al. SARS-CoV-2 Spike triggers barrier dysfunction and vascular leak via integrins and TGF-β signaling. <em>Nature Communications</em>, 2022.</li>
-        <li><strong>Warnes CM</strong>, et al. The epidemiology and surveillance of dengue in Medellín, Colombia, 2009–2017. <em>American Journal of Tropical Medicine and Hygiene</em>, 2021.</li>
-        <li>Puerta-Guardo H, et al. Flavivirus NS1-triggered endothelial dysfunction promotes virus dissemination. <em>PLOS Pathogens</em>, 2025.</li>
-      </ul>
-      <p class="note">Patents: WO2025064836 and WO2025166050 (co-inventor, Glyphic Bio).</p>
-    </section>
+      <section id="experience">
+        <h2>Experience</h2>
+        <ul class="entries">
+          <li>
+            <div class="row"><strong>Imperial College London</strong><span>2024 – present</span></div>
+            <div class="sub">PhD Candidate, Clinical Medicine Research (Public Health)</div>
+            <p>Bayesian regression and within-host models of viral biomarker kinetics during infection.</p>
+          </li>
+          <li>
+            <div class="row"><strong>Glyphic Biotechnologies</strong><span>2022 – 2024</span></div>
+            <div class="sub">Scientist I, Molecular Biology · Berkeley, CA</div>
+            <p>Designed nucleic acid processes using DNA origami, click chemistry and sequencing readout; evaluated antibody candidates and bioconjugation.</p>
+          </li>
+          <li>
+            <div class="row"><strong>Oxford University Clinical Research Unit</strong><span>2021, 2022</span></div>
+            <div class="sub">CGPH Research Fellow · Ho Chi Minh City, Vietnam</div>
+            <p>Established on-site assays for biomarkers implicated in dengue virus infection.</p>
+          </li>
+          <li>
+            <div class="row"><strong>UC Berkeley, Harris Lab</strong><span>2020 – 2022</span></div>
+            <div class="sub">Graduate Student Researcher</div>
+            <p>Characterised chikungunya disease in a Nicaraguan cohort; built low-cost dengue (DENV1–4) and yellow fever NS1 capture ELISAs used across Nicaragua, Ecuador, Vietnam and Brazil.</p>
+          </li>
+        </ul>
+      </section>
 
-    <section id="awards">
-      <h2>Awards</h2>
-      <ul class="plain">
-        <li>Best Poster Award, President's PhD Scholarship Symposium, Imperial, 2025</li>
-        <li>President's PhD Scholarship, Imperial College London, 2024–2028</li>
-        <li>Sanford Elberg Award, UC Berkeley School of Public Health, 2022</li>
-        <li>Center for Global Public Health Research Fellowship, UC Berkeley, 2021–2022</li>
-      </ul>
-    </section>
+      <section id="education">
+        <h2>Education</h2>
+        <ul class="entries">
+          <li>
+            <div class="row"><strong>PhD, Clinical Medicine Research</strong><span>2024 – present</span></div>
+            <div class="sub">Imperial College London · President's PhD Scholar</div>
+          </li>
+          <li>
+            <div class="row"><strong>MPH, Infectious Disease &amp; Vaccinology</strong><span>2022</span></div>
+            <div class="sub">University of California, Berkeley</div>
+          </li>
+          <li>
+            <div class="row"><strong>BS, Health: Science, Society &amp; Policy</strong><span>2017</span></div>
+            <div class="sub">Brandeis University · Minor in International &amp; Global Studies</div>
+          </li>
+        </ul>
+      </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="plain">
-        <li><span class="label">Languages</span> English (native), Farsi (native spoken), Spanish (fluent)</li>
-        <li><span class="label">Computing</span> R, Stan, Java, HTML/CSS</li>
-        <li><span class="label">Lab</span> Immunoassays, nucleic acid design, antibody production, virology</li>
-      </ul>
-    </section>
+      <section id="publications">
+        <h2>Publications</h2>
+        <p class="note" id="pubs-meta">From <a href="https://orcid.org/0000-0003-3088-8429">ORCID</a></p>
+        <ul class="pubs" id="pubs">
+          <li><strong>Warnes CM</strong>, et al. The burden of post-acute chikungunya-associated arthralgia in children and adults. <em>PLOS Neglected Tropical Diseases</em>, 2024.</li>
+          <li>de Sousa FTG, <strong>Warnes CM</strong>, et al. Yellow fever disease severity and endothelial dysfunction are associated with elevated serum levels of viral NS1 protein and syndecan-1. <em>eBioMedicine</em>, 2024.</li>
+          <li>Biering SB, et al. SARS-CoV-2 Spike triggers barrier dysfunction and vascular leak via integrins and TGF-β signaling. <em>Nature Communications</em>, 2022.</li>
+          <li><strong>Warnes CM</strong>, et al. The epidemiology and surveillance of dengue in Medellín, Colombia, 2009–2017. <em>American Journal of Tropical Medicine and Hygiene</em>, 2021.</li>
+          <li>Puerta-Guardo H, et al. Flavivirus NS1-triggered endothelial dysfunction promotes virus dissemination. <em>PLOS Pathogens</em>, 2025.</li>
+        </ul>
+        <p class="note">Patents: WO2025064836 and WO2025166050 (co-inventor, Glyphic Bio).</p>
+      </section>
 
-    <div class="photos">
-      <figure class="outside portrait">
-        <img src="images/berkeley.jpg" alt="A star of fairy lights signed by lab members on a window overlooking UC Berkeley" width="900" height="1200" loading="lazy">
-        <figcaption>Harris Lab, Berkeley</figcaption>
-      </figure>
-      <figure class="outside landscape">
-        <img src="images/everton.jpg" alt="Colin outside Goodison Park, Everton" width="1024" height="768" loading="lazy">
-        <figcaption>Away from work: Everton supporter</figcaption>
-      </figure>
-    </div>
+      <section id="awards">
+        <h2>Awards</h2>
+        <ul class="plain">
+          <li>Best Poster Award, President's PhD Scholarship Symposium, Imperial, 2025</li>
+          <li>President's PhD Scholarship, Imperial College London, 2024–2028</li>
+          <li>Sanford Elberg Award, UC Berkeley School of Public Health, 2022</li>
+          <li>Center for Global Public Health Research Fellowship, UC Berkeley, 2021–2022</li>
+        </ul>
+      </section>
 
-    <footer>© 2026 Colin M. Warnes</footer>
-  </main>
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul class="plain">
+          <li><span class="label">Languages</span> English (native), Farsi (native spoken), Spanish (fluent)</li>
+          <li><span class="label">Computing</span> R, Stan, Java, HTML/CSS</li>
+          <li><span class="label">Lab</span> Immunoassays, nucleic acid design, antibody production, virology</li>
+        </ul>
+      </section>
+
+      <section id="photos">
+        <h2>Photos</h2>
+        <div class="photos">
+          <figure class="portrait">
+            <img src="images/berkeley.jpg" alt="A star of fairy lights signed by lab members on a window overlooking UC Berkeley" width="900" height="1200" loading="lazy">
+            <figcaption>Harris Lab, Berkeley</figcaption>
+          </figure>
+          <figure class="landscape">
+            <img src="images/everton.jpg" alt="Colin outside Goodison Park, Everton" width="1024" height="768" loading="lazy">
+            <figcaption>Away from work: Everton supporter</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <footer>© 2026 Colin M. Warnes</footer>
+    </main>
+  </div>
   <script src="publications.js"></script>
+  <script src="nav.js"></script>
 </body>
 </html>
