@@ -1,14 +1,14 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-11-02",
   "profile": "https://orcid.org/0000-0003-3088-8429",
   "publications": [
     {
       "title": "Flavivirus NS1-triggered endothelial dysfunction promotes virus dissemination",
-      "authors": "Henry Puerta-Guardo, Scott B. Biering, Bryan Castillo-Rojas, Michael J. DiBiasio-White, Nicholas TN Lo, Diego A. Espinosa, Colin M. Warnes, Chunling Wang, Thu Cao, Dustin R. Glasner, P. Robert Beatty, Richard J. Kuhn, Eva Harris",
-      "venue": "bioRxiv",
-      "year": 2024,
-      "preprint": true,
-      "url": "https://doi.org/10.1101/2024.11.29.625931"
+      "authors": "Henry Puerta-Guardo, Scott B. Biering, Bryan Castillo-Rojas, Michael J. DiBiasio-White, Nicholas T. N. Lo, Diego A. Espinosa, Colin M. Warnes, Chunling Wang, Thu M. Cao, Dustin R. Glasner, P. Robert Beatty, Richard J. Kuhn, Eva Harris",
+      "venue": "PLOS Pathogens",
+      "year": 2025,
+      "preprint": false,
+      "url": "https://doi.org/10.1371/journal.ppat.1013811"
     },
     {
       "title": "Yellow fever disease severity and endothelial dysfunction are associated with elevated serum levels of viral NS1 protein and syndecan-1",
